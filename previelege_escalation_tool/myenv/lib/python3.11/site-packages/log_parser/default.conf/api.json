@@ -1,0 +1,42 @@
+{
+  "/layout": {
+    "handler" : "layout",
+    "methods" : ["GET"],
+    "params" : []
+  },
+  "/layout/distributions": {
+    "handler" : "layout_distributions",
+    "methods" : ["GET"],
+    "params" : ["server"]
+  },
+  "/layout/counters": {
+    "handler" : "layout_counters",
+    "methods" : ["GET"],
+    "params" : ["server"]
+  },
+  "/layout/failed": {
+    "handler" : "layout_failed",
+    "methods" : ["GET"],
+    "params" : []
+  },
+  "/parse/single" : {
+    "handler" : "parse_single",
+    "methods" : ["POST"],
+    "params" : ["server","filename"]
+  },
+  "/logs/servers" : {
+    "handler" : "logs_servers",
+    "methods" : ["GET"],
+    "params" : []
+  },
+  "/logs/filenames" : {
+    "handler" : "logs_filenames",
+    "methods" : ["GET"],
+    "params" : ["server"]
+  },
+  "/config" : {
+    "handler" : "config",
+    "methods" : ["GET"],
+    "params" : []
+  }
+}

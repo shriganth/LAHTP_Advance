@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: log-parser
+Version: 2.3
+Summary: Log Parser is a program for analyzing log files
+Home-page: http://github.com/vadimpilyugin/python_log_parser
+Author: vadimpilyugin
+Author-email: vadimpilyugin@gmail.com
+License: LGPL
+Keywords: log parser
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Text Processing
+Requires-Dist: flask
+Requires-Dist: pyyaml
+
+UNKNOWN
+
+

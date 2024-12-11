@@ -1,0 +1,4 @@
+#!/home/shriganth/Desktop/LAHTP_advanced/previelege_escalation_tool/myenv/bin/python3
+
+from log_parser import server
+server.start("0.0.0.0", 5000)

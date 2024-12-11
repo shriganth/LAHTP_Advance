@@ -1,0 +1,51 @@
+---
+ApacheFormat:
+  service: apache
+  date: '%d/%b/%Y:%H:%M:%S %z'
+  regex: |
+    (?<user_ip>\S+) # may be ipv6
+    \s-\s-\s
+    \[
+      (?<__DATE__>[^\]]+)
+    \]
+    \s
+    "
+      (?<method>\S+) \s 
+      (?<path>[^\s\?]+) (\?(?<params>\S+))? \s 
+      HTTP\/(?<http_version>\d\.\d)
+    "
+    \s
+    (?<code>\d+)
+    (.*)
+    \s-\s-\s
+    (?<__SERVER__>\S+)
+    
+SyslogFormat:
+  date: '%b %d %H:%M:%S'
+  regex: |
+    (?<__DATE__>[a-zA-Z]+\s+\d+\s\d+:\d+:\d+)\s+       # Feb 25 00:12:18
+    (?<__SERVER__>\S+)\s+     # newserv
+    (?<__SERVICE__>[^\[:\ ]+) # systemd-logind - все до разделителя
+    (\[(?<pid>\d+)\])?        # [10405] - может идти, а может и не идти за именем сервиса
+    (:)?\s*(?<__MSG__>.*)     # : Accepted publickey for autocheck
+
+Fail2BanFormat:
+  date: '%Y-%m-%d %H:%M:%S'
+  regex: |
+    (?<__DATE__>[^,]+),\d+   # 2017-02-05 07:06:03,142
+    \s+
+    # Service, type
+    (?<__SERVICE__>[^\.]+)
+    \.
+    (?<type>\S+)
+    \s+
+    # PID
+    \[(\d+)\]:     # [1686]:
+    \s+
+    # Warning level
+    (?<level>\S+)        # INFO
+    \s+
+    # Service name
+    (\[([\w\-]+)\])? # [pam-generic]
+    \s+
+    (?<__MSG__>.*)             # rollover performed on /var/log/fail2ban.log
