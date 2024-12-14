@@ -25,21 +25,13 @@ def chat_client():
         ready_to_read, _, _ = select.select(sockets_list, [], [])
 
         for sock in ready_to_read:
-            # print("sock : {}" .format(sock))
-            # print("client_socket : {}" .format(client_socket))
-            # data = sock.recv(RECEIVE_BUFF)
             if sock == client_socket:
-            # if data:
-                # Incoming message from server
-                # print("shriganth")
                 data = sock.recv(RECEIVE_BUFF)
                 print(f"\n{data.decode('utf-8')}")
                 if not data:
                     print("Disconnected from server.")
                     sys.exit()
                 else:
-                    # print("shriganth")
-                    # print(f"\n{data.decode('utf-8')}")
                     sys.stdout.write("> ")
                     sys.stdout.flush()
             else:
